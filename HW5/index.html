@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>eShop</title>
+  <script defer src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <input type="text" class="goods-search"  v-model="searchLine"/>
+      <button class="search-button" type="button" v-on:click="filterGoods">Искать</button>
+      <button class="cart-button" type="button">Корзина</button>
+    </header>
+    <main>
+      <div class="goods-list">
+        <div v-if="!filteredGoods.length">Нет данных</div>
+        <div class="goods-item" v-for="good in filteredGoods" :key="good.id_product">
+          <h3>{{ good.product_name }}</h3>
+          <p>{{ good.price }}</p>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
