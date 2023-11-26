@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>eShop</title>
+  <link rel="stylesheet" href="cd632bd5fca27f874c67.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <script defer src="0a5e73afd5003190595e.js"></script>
+<script defer src="main.3a8e0c89ca759844adb4.js"></script></head>
+<body>
+  <div id="app">
+    <header>
+      <!-- Поиск -->
+      <div>
+        <search @filtergoods="filterGoods"/>
+      </div>
+      <!-- Корзина -->
+      <div>
+        <button @click="showCart" class="cart-button" type="button">Корзина</button>
+        <cart v-if="isVisibleCart" :cart-items="cartItems" @remove-from-cart="removeFromCart" />
+      </div>
+    </header>
+    <main>
+      <div class="goods-list">
+        <div v-if="!filteredGoods.length">Нет данных</div>
+        <goods-list :goods="filteredGoods" @addtocart="addToCart"></goods-list>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
